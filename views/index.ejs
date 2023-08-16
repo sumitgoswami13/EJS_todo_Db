@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="heading" class="box">
+        <h1>To do list</h1>
+    </div>
+    <div class="box">
+        <% for (var i = 0; i < list.length; i++) { %>
+        <div class="item">
+            <form class="item" action="/delete/<%= list[i]._id %>" method="POST">
+                <input type="checkbox" name="completed" onchange="this.form.submit()">
+                <p><%= list[i].list %></p>
+            </form>
+        </div>
+        <% } %>
+        <form class="form" action="/" method="POST">
+            <input type="text" name="ele1" placeholder="Insert item">
+            <button type="submit">ADD</button>
+        </form>
+    </div>
+</body>
+</html>
